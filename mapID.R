@@ -6,12 +6,12 @@ aroundTheWorldIdWiki <- "http://en.wikipedia.org/wiki/List_of_national_identity_
 idsTables <- readHTMLTable(aroundTheWorldIdWiki, which=c(1,3,4), stringsAsFactors = FALSE)
 names(idsTables) <- c("Compulsory identity cards", "Non-compulsory identity cards", "No identity cards")
 
-countrys <- gsub("^\\W+|\\W+$", "", unlist(lapply(idsTables, function(x) x[,1])))
-countrysCode <- countrycode(countrys, "country.name",  "iso3c")
+country <- gsub("^\\W+|\\W+$", "", unlist(lapply(idsTables, function(x) x[,1])))
+countryCode <- countrycode(country, "country.name",  "iso3c")
 nTypeId <- sapply(idsTables, nrow)
 idsTypes <-unlist(mapply(rep, names(nTypeId), nTypeId))
 
-worldIdDf <- data.frame("ISO3V10" = countrysCode, 'Country' = countrys, "id_policies" = idsTypes, stringsAsFactors = FALSE )
+worldIdDf <- data.frame("ISO3V10" = countryCode, 'Country' = country, "id_policies" = idsTypes, stringsAsFactors = FALSE )
 rownames(worldIdDf) <- NULL
 
 
