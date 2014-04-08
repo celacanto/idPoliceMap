@@ -42,6 +42,6 @@ mapParams <- mapCountryData(sPDF, mapTitle= "", nameColumnToPlot = "id_policies"
 legend(x=-170, y=0, cex = 0.9,legend=c("Compulsory identity cards", "No identity cards", "Non-compulsory identity cards",
                              "No Data"), fill=c(idColour, col_noData), bg = rgb(1,1,1,0.3))
 text(x = 180, y = -57, labels = "Source: http://en.wikipedia.org/wiki/List_of_national_identity_card_policies_by_country", pos = 2,
-     cex = 0.9, font = 3)
+     cex = 0.7, font = 3)
 
 dev.off()
